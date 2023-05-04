@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Toko Buku</title>
-    <link rel="stylesheet" href="sytle.css" />
+    <link rel="stylesheet" href="sytle.css"/>
+    <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
   </head>
   <body>
     <!-- Navbar -->
-  <nav class="navbar">
-    <a class="navbar-brand" href="#">Toko Buku</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="buku.php">Daftar Buku</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="kontak.php">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Log Out</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    <header class="header">
+        <a href="test1.php" class="logo">Toko Buku Ana</a>
+        <nav class="navbar">
+          <a href="test1.php">Home</a>
+          <a href="buku.php">Daftar Buku</a>
+          <a href="kontak.php">Kontak</a>
+          <a href="index.php">Logout</a>
+        </nav>
+      </header>
   <!-- Jumbotron -->
   <div class="jumbotron">
     <h1>Selamat datang di Toko Buku</h1>
@@ -35,47 +44,85 @@
     <p>Segera temukan buku yang Anda butuhkan dan jangan lewatkan promo menarik kami!</p>
     <a href="buku.php">Lihat buku</a>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="width: 30%;">
-      <div style="margin-bottom: 30px;">
-        <div style="overflow: hidden; border-radius: 5px;">
-          <img src="./img/poto.png" alt="Card image cap" style="width: 100%; height: auto;">
-        </div>
-        <div style="padding: 10px;">
-          <h5 style="margin-bottom: 10px;">Kisah aku</h5>
-          <p style="margin-bottom: 0;">Buku ini adalahh buku yang memiliki penjualan paling tinggi dari toko ini.</p>
-          <a href="beli.php" style="display: block; margin-top: 10px; text-align: center; border-radius: 5px; padding: 5px; background-color: #007bff; color: #fff; text-decoration: none;">Beli</a>
-        </div>
-      </div>
-    </div>
-    <div style="width: 30%;">
-      <div style="margin-bottom: 30px;">
-        <div style="overflow: hidden; border-radius: 5px;">
-          <img src="./img/poto.png" alt="Card image cap" style="width: 100%; height: auto;">
-        </div>
-        <div style="padding: 10px;">
-          <h5 style="margin-bottom: 10px;">Kamu siapa</h5>
-          <p style="margin-bottom: 0;">Buku ini adalah buku favorit pilihan staff kami yang berpengalaman.</p>
-          <a href="beli.php" style="display: block; margin-top: 10px; text-align: center; border-radius: 5px; padding: 5px; background-color: #007bff; color: #fff; text-decoration: none;">Beli</a>
-        </div>
-      </div>
-    </div>
-    <div style="width: 30%;">
-      <div style="margin-bottom: 30px;">
-        <div style="overflow: hidden; border-radius: 5px;">
-          <img src="./img/poto.png" alt="Card image cap" style="width: 100%; height: auto;">
-        </div>
-        <div style="padding: 10px;">
-          <h5 style="margin-bottom: 10px;">YTTA</h5>
-          <p style="margin-bottom: 0;">dapatkan diskon 50% dari buku ini, ayo beli sekarang</p>
-          <a href="beli.php" style="display: block; margin-top: 10px; text-align: center; border-radius: 5px; padding: 5px; background-color: #007bff; color: #fff; text-decoration: none;">Beli</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Footer -->
-  <footer>
-      <p>&copy; 2023 Toko Buku. All
+  
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery">
+      <div class="container-fluid">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-1.jpg" title="Gallery 1" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-2.jpg" title="Gallery 2" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-3.jpg" title="Gallery 3" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-4.jpg" title="Gallery 4" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-6.jpg" title="Gallery 6" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-7.jpg" title="Gallery 7" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+          <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="gallery-item h-100">
+              <img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/gallery/gallery-8.jpg" title="Gallery 8" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                <a href="beli.php" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div><!-- End Gallery Item -->
+
     </body>
   </html>
     
