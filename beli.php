@@ -7,6 +7,6 @@
     <title>Pembelian</title>
 </head>
 <body>
-    
+    <p>selamat beli</p>
 </body>
 </html>
