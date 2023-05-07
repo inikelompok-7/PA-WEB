@@ -1,34 +1,38 @@
 <?php
-// Array yang berisi data pengguna dan peran (role) pengguna
-$users = array(
-    array("username" => "admin", "password" => "admin123", "role" => "Admin"),
-    array("username" => "user", "password" => "user123", "role" => "User"),
-);
 
-// Fungsi untuk melakukan autentikasi pengguna
-function authenticateUser($username, $password, &$userRole) {
-    global $users;
-    foreach ($users as $user) {
-        if ($user["username"] == $username && $user["password"] == $password) {
-            $userRole = $user["role"];
-            return true;
-        }
-    }
-    return false;
+$db_host = "localhost";
+$db_user = "root";
+$db_pass = "";
+$db_name = "tkbuku";
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
-// Proses form login
+function authenticateUser($username, $password, &$userRole) {
+    global $conn;
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);    
+        $userRole = $row["role"];
+        return true;
+    } else {
+        return false;
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $userRole = "";
     if (authenticateUser($username, $password, $userRole)) {
-        // Jika autentikasi sukses, set session dan redirect ke halaman sesuai peran (role) pengguna
         $_SESSION["logged_in"] = true;
         $_SESSION["user_role"] = $userRole;
-        if ($userRole == "Admin") {
+        if ($userRole == "admin") {
             header("Location: admin.php");
             exit();
-        } elseif ($userRole == "User") {
+        } elseif ($userRole == "user") {
             header("Location: test1.php");
             exit();
         }
@@ -36,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Username atau password salah. Silakan coba lagi.";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -270,14 +275,6 @@ a:hover{
     </style>
 </head>
 <body>
-    <!-- <div class="login-container">
-        <h1>Login</h1>
-        <form method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required >
-            <input type="submit" value="Login">
-        </form>
-    </div> -->
     <img class="wave" src="img/wave.png">
 	<div class="container">
 		<div class="img">
@@ -293,7 +290,7 @@ a:hover{
            		   </div>
            		   <div class="div">
            		   		<h5>Username</h5>
-           		   		<input type="text" class="input" name="username">
+           		   		<input type="text" class="input" name="username" required >
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -302,7 +299,7 @@ a:hover{
            		   </div>
            		   <div class="div">
            		    	<h5>Password</h5>
-           		    	<input type="password" class="input" name="password">
+           		    	<input type="password" class="input" name="password" required>
             	   </div>
             	</div>
             	<input type="submit" class="btn" value="Login">
