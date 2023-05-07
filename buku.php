@@ -20,7 +20,7 @@
            </li>
            <li class="nav-item">
              <a class="nav-link" href="buku.php">Daftar Buku</a>
-           </li>
+           </li
            <li class="nav-item">
              <a class="nav-link" href="kontak.php">Contact</a>
            </li>
@@ -30,9 +30,9 @@
          </ul>
        </div>
      </nav>
-  <h1>Daftar Buku iininninini</h1>
+  <h1>Daftar Buku</h1>
   
-  <table>
+  <table> 
     <thead>
       <tr>
         <th>Judul Buku</th>
@@ -57,7 +57,7 @@
         echo "<td>" . $row['pengarang'] . "</td>";
         echo "<td>" . $row['penerbit'] . "</td>";
         echo "<td>" . $row['harga'] . "</td>";
-        echo "<td><a href=\"beli.php?id=" . $row['id'] . "\">Beli</a></td>";
+        echo "<td><a href=\"beli.php?id=" . $row['id_buku'] . "\">Beli</a></td>";
         echo "</tr>";
       }
 

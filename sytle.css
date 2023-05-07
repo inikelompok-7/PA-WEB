@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background: url('background.jpg') no-repeat;
+  background: url("background.jpg") no-repeat;
   background-size: cover;
   background-position: center;
+  margin: 0;
 }
 
 .header {
@@ -24,25 +25,23 @@ body {
   justify-content: space-between;
   align-items: center;
   /* backdrop-filter: blur(10px); */
-  border-bottom: 2px solid rgba(255,255,255,.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 100px;
 }
 
-.header::before{
-  content: '';
+.header::before {
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-  transition: .5s;
-
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
 }
 
 .header:hover::before {
   left: 100%;
-
 }
 .logo {
   color: #fff;
@@ -58,24 +57,23 @@ body {
   font-size: 18px;
   text-decoration: none;
   margin-left: 35px;
-  transition: .3s;
+  transition: 0.3s;
   margin-right: 30px;
-
 }
 
 .navbar a:hover {
-    color: rgb(87, 194, 141)
+  color: rgb(87, 194, 141);
 }
 
 .jumbotron {
   background-position: center;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   padding: 150px 0;
 }
 
 .jumbotron h1 {
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 72px;
   font-weight: bold;
   margin-bottom: 50px;
@@ -87,12 +85,12 @@ body {
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 50px;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .jumbotron a {
-  background-color: #FFF;
-  color: #00703C;
+  background-color: #fff;
+  color: #00703c;
   display: inline-block;
   font-size: 18px;
   font-weight: bold;
@@ -103,6 +101,27 @@ body {
 }
 
 .jumbotron a:hover {
-  background-color: #00703C;
-  color: #FFF;
+  background-color: #00703c;
+  color: #fff;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.lead {
+  text-align: left;
 }
