@@ -104,24 +104,8 @@ body {
   background-color: #00703c;
   color: #fff;
 }
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 20px;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #4caf50;
-  color: white;
-}
 
 .lead {
-  text-align: left;
+  text-align: center;
 }
+

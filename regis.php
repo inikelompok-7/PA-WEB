@@ -31,11 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
-  <title>Halaman Register</title>
-</head>
+  <title>Halaman Register</title> -->
+  <!-- <link rel="stylesheet" href="regis.css"> -->
+<!-- </head>
 <body>
 
   <h2>Registrasi User Baru</h2>
@@ -59,6 +60,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" value="Register">
 
   </form>
+  
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrasi User Baru</title>
+  <link rel="stylesheet" href="regis.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Registrasi User Baru</h2>
+    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+      <div class="form-group">
+        <label for="nama">Nama:</label>
+        <input type="text" name="nama" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="alamat">Alamat:</label>
+        <input type="text" name="alamat" required>
+      </div>
+      <div class="form-group">
+        <label for="nohp">Nomor Hp:</label>
+        <input type="text" name="nohp" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+  </div>
 </body>
 </html>

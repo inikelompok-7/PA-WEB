@@ -15,7 +15,6 @@
           <p>Menyediakan berbagai macam buku yang menarik dengan harga yang terjangkau</p>
           <div class="button">
             <a href="login.php" style="text-decoration: none"><button class="btnmulai">Login</button></a>
-            <a href="test1.php" style="text-decoration: none"><button class="btnmulai">Guest</button></a>
             <a href="regis.php" style="text-decoration: none"><button class="btnmulai">Register</button></a>
           </div>
         </section>
