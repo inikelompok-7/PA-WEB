@@ -39,7 +39,7 @@
       $conn = mysqli_connect("localhost", "root", "", "tkbuku");
 
       // query untuk menambah data buku
-      $query = "INSERT INTO buku (judul, pengarang, penerbit, harga) VALUES ('$judul', '$pengarang', '$penerbit', '$harga', '$jumlah')";
+      $query = "INSERT INTO buku (judul, pengarang, penerbit, harga, jumlah) VALUES ('$judul', '$pengarang', '$penerbit', '$harga', '$jumlah')";
       $result = mysqli_query($conn, $query);
 
       // jika query berhasil dieksekusi
