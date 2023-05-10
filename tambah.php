@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
-  
+     
 </head>
 <body>
 
@@ -33,12 +33,13 @@
       $pengarang = $_POST['pengarang'];
       $penerbit = $_POST['penerbit'];
       $harga = $_POST['harga'];
+      $jumlah = $_POST['jumlah'];
 
       // membuat koneksi ke database
       $conn = mysqli_connect("localhost", "root", "", "tkbuku");
 
       // query untuk menambah data buku
-      $query = "INSERT INTO buku (judul, pengarang, penerbit, harga) VALUES ('$judul', '$pengarang', '$penerbit', '$harga')";
+      $query = "INSERT INTO buku (judul, pengarang, penerbit, harga) VALUES ('$judul', '$pengarang', '$penerbit', '$harga', '$jumlah')";
       $result = mysqli_query($conn, $query);
 
       // jika query berhasil dieksekusi
@@ -49,7 +50,7 @@
       else {
         echo "<script>alert('Data gagal ditambahkan.');</script>";
       }
-
+      
       // mengakhiri koneksi database
       mysqli_close($conn);
     }
@@ -308,6 +309,10 @@
                 <div class="form-group">
                     <label for="harga">Harga</label>
                     <input type="number" class="form-control p-input" name="harga" id="harga" placeholder="Masukkan harga buku">
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Harga</label>
+                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
                 </div>
                 
                 <div class="col-12">

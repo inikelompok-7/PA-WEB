@@ -35,12 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } elseif ($userRole == "user") {
             header("Location: test1.php");
             exit();
-        }
+        } elseif ($userRole == "supplier") {
+            header("Location: supplier.php");
+            exit();
     } else {
         $error_message = "Username atau password salah. Silakan coba lagi.";
     }
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html>
