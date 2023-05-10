@@ -1,5 +1,15 @@
+<?php
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "user") {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +41,7 @@
           <a href="test1.php">Home</a>
           <a href="buku.php">Daftar Buku</a>
           <a href="kontak.php">Kontak</a>
-          <a href="index.php">Logout</a>
+          <a href="logout.php">Logout</a>
         </nav>
       </header>
   <!-- Jumbotron -->
