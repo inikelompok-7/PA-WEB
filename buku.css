@@ -5,7 +5,7 @@
         max-width: 1000px;
         margin: 0 auto;
         background-color: #fff;
-        margin-bottom: 150px;
+        margin-bottom: 250px;
     }
     
     th,
@@ -58,3 +58,26 @@
         text-transform: uppercase;
     
     }
+
+    .cari{
+        padding-left: 165px;
+        margin: 10px;
+    }
+
+    .kotak {
+        padding: 4px;
+        width: 500px;
+        border: 2px solid #101a10;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+    
+      .kotak:focus {
+        border-color: #45a049;
+      }
+.card{
+    margin: 40px 20px 0px 360px;
+}
+      

@@ -64,7 +64,9 @@
         <input type="text" name="nohp" required>
       </div>
       <div class="form-group">
+      <a href="index.php"><input type="button" value="kembali"></a>
         <input type="submit" value="Register">
+        
       </div>
     </form>
   </div>

@@ -57,11 +57,10 @@
         </nav>
       </header>
   <h1>Daftar Buku</h1>
-  <h1>Daftar Buku</h1>
-<form method="GET">
-  <input type="text" name="search" placeholder="Cari judul buku">
-  <input type="submit" value="Cari">
-  <button type="submit" name="show_all">Tampilkan Semua</button>
+<form method="GET" class="cari">
+  <input type="text" name="search" placeholder="Cari judul buku" class="kotak">
+  <input type="submit" value="Cari" class="btn btn-primary btn-md">
+  <button type="submit" name="show_all" class="btn btn-secondary btn-md">Tampilkan Semua</button>
 </form>
 <table> 
   <thead>
@@ -71,6 +70,7 @@
       <th>Pengarang</th>
       <th>Penerbit</th>
       <th>Harga</th>
+      <th>Jumlah</th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -97,6 +97,7 @@
       echo "<td>" . $row['pengarang'] . "</td>";
       echo "<td>" . $row['penerbit'] . "</td>";
       echo "<td>" . $row['harga'] . "</td>";
+      echo "<td>" . $row['jumlah'] . "</td>";
       echo "<td><a href=\"beli.php?id=" . $row['id_buku'] . "\">Beli</a></td>";
       echo "</tr>";
     }
