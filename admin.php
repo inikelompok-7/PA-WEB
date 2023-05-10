@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Star Admin2</title>
+    <title>Star Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
     <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
@@ -48,10 +48,10 @@
             </button>
           </div>
           <div>
-            <a class="navbar-brand brand-logo" href="index.html">
+            <a class="navbar-brand brand-logo" href="admin.php">
               <img src="images/logo.svg" alt="logo" />
             </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
+            <a class="navbar-brand brand-logo-mini" href="admin.php">
               <img src="images/logo-mini.svg" alt="logo" />
             </a>
           </div>
@@ -262,76 +262,13 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="admin.php">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item nav-category">UI Elements</li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon mdi mdi-floor-plan"></i>
-                <span class="menu-title">UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                  <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item nav-category">Forms and Datas</li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Form elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="menu-icon mdi mdi-chart-line"></i>
-                <span class="menu-title">Charts</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="menu-icon mdi mdi-table"></i>
-                <span class="menu-title">Tables</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <i class="menu-icon mdi mdi-layers-outline"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"><a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+            
+            
         </nav>
         <!-- partial -->
         <div class="main-panel">
@@ -359,7 +296,7 @@
                                   </div>
                                   <div class="table-responsive mt-1">
                                     <table class="table select-table">
-                                    <a href="tambah.php">[Tambah]</a>
+                                    <a href="tambah.php" class="btn btn-inverse-primary btn-icon btn-md">Tambah Buku</a>
                                         <thead>
                                           <tr>
                                             <th>No</th>
@@ -389,8 +326,8 @@
                                             echo "<td>" . $row['harga'] . "</td>";
                                             echo "
                                                   <td>
-                                                    <a href='ubah.php?id=" . $row['id_buku'] . "'>[Update]</a>
-                                                    <a href='hapus.php?id=" . $row['id_buku'] . "'>[Delete]</a>
+                                                    <a href='ubah.php?id=" . $row['id_buku'] . "'class='btn btn-outline-success btn-inverse btn-icon'>update</a>
+                                                    <a href='hapus.php?id=" . $row['id_buku'] . "'class='btn btn-outline-danger btn-inverse btn-icon'>delete</a>
                                                   </td>";
                                             echo "</tr>";
                                           }
@@ -423,26 +360,26 @@
                                         <ul class="todo-list todo-list-rounded">
                                           <li class="d-block">
                                             <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i> </label>
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Inforsa akan mensupplai buku pada tanggal 17 Mei 2023 <i class="input-helper rounded"></i> </label>
                                               <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">24 June 2020</div>
-                                                <div class="badge badge-opacity-warning me-3">Due tomorrow</div>
+                                                <div class="ps-4 text-small me-3">17 Mei 2023</div>
+                                                <div class="badge badge-opacity-warning me-3">Tomorrow</div>
                                                 <i class="mdi mdi-flag ms-2 flag-color"></i>
                                               </div>
                                             </div>
                                           </li>
                                           <li class="d-block">
                                             <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i> </label>
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Sunan Gunung Jati ingin menjadi penyuplai buku di Toko Buku Ana<i class="input-helper rounded"></i> </label>
                                               <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">23 June 2020</div>
+                                                <div class="ps-4 text-small me-3">23 June 2023</div>
                                                 <div class="badge badge-opacity-success me-3">Done</div>
                                               </div>
                                             </div>
                                           </li>
                                           <li>
                                             <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i> </label>
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Perbarui beberapa stok buku yang telah habis <i class="input-helper rounded"></i> </label>
                                               <div class="d-flex mt-2">
                                                 <div class="ps-4 text-small me-3">24 June 2020</div>
                                                 <div class="badge badge-opacity-success me-3">Done</div>
@@ -451,7 +388,7 @@
                                           </li>
                                           <li class="border-bottom-0">
                                             <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Lorem Ipsum is simply dummy text of the printing <i class="input-helper rounded"></i> </label>
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Mengajak PT Dirgantara untuk menjadi penyuplai buku di Toko Buku Ana <i class="input-helper rounded"></i> </label>
                                               <div class="d-flex mt-2">
                                                 <div class="ps-4 text-small me-3">24 June 2020</div>
                                                 <div class="badge badge-opacity-danger me-3">Expired</div>
