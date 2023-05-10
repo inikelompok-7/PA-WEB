@@ -314,7 +314,7 @@
                                   </div>
                                   <div class="table-responsive mt-1">
                                     <table class="table select-table">
-                                    <a href="tambah.php" class="btn btn-inverse-primary btn-icon btn-md">Tambah Buku</a>
+                                    
                                     <form method="GET">
                                       <input type="text" name="search" placeholder="Cari judul buku" class="kotak">
                                       <input type="submit" value="Cari" class="btn btn-inverse-secondary btn-icon btn-md">

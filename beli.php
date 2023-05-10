@@ -104,7 +104,7 @@ mysqli_close($conn);
                     </div>
               <div class="form-group">
                     <label for="jumlah">Masukkan Jumlah Buku</label>
-                    <input type="text" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
+                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
                     </div>
                     
                 <div class="col-12">
