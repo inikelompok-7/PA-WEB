@@ -48,10 +48,10 @@
             </button>
           </div>
           <div>
-            <a class="navbar-brand brand-logo" href="admin.php">
+            <a class="navbar-brand brand-logo" href="#">
               <img src="images/logo.svg" alt="logo" />
             </a>
-            <a class="navbar-brand brand-logo-mini" href="admin.php">
+            <a class="navbar-brand brand-logo-mini" href="#">
               <img src="images/logo-mini.svg" alt="logo" />
             </a>
           </div>
@@ -59,7 +59,7 @@
         <div class="navbar-menu-wrapper d-flex align-items-top">
           <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-              <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">Admin</span></h1>
+              <h1 class="welcome-text">Halo, <span class="text-black fw-bold">Supplier</span></h1>
               <h3 class="welcome-sub-text">Selamat datang di Toko buku ana</h3>
             </li>
           </ul>
@@ -262,7 +262,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="admin.php">
+              <a class="nav-link" href="#">
                 <i class="mdi mdi-grid-large menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -297,13 +297,6 @@
                                   <div class="table-responsive mt-1">
                                     <table class="table select-table">
                                     <a href="tambah.php" class="btn btn-inverse-primary btn-icon btn-md">Tambah Buku</a>
-                                    <form method="GET">
-                                      <input type="text" name="search" placeholder="Cari judul buku">
-                                      <input type="submit" value="Cari">
-                                      <button type="submit" name="show_all">Tampilkan Semua</button>
-                                      <button type="submit" name="sort_asc">Urutkan A-Z</button>
-                                      <button type="submit" name="sort_desc">Urutkan Z-A</button>
-                                    </form>
                                         <thead>
                                           <tr>
                                             <th>No</th>
@@ -312,28 +305,15 @@
                                             <th>Penerbit</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
-                                            <th>Aksi</th>
+                                            
                                               <!-- <td><a href="hapus.php">[Delete]</a></td> -->
                                           </tr>
                                         </thead>
                                         <tbody>
                                         <?php
+                                          // mengambil data buku dari database
                                           $conn = mysqli_connect("localhost", "root", "", "tkbuku");
-                                          $search = isset($_GET['search']) ? $_GET['search'] : '';
                                           $query = "SELECT * FROM buku";
-                                          if (!empty($search)) {
-                                            $query .= " WHERE judul LIKE '%$search%'";
-                                          }
-                                          if (isset($_GET['show_all'])) {
-                                            $query = "SELECT * FROM buku";
-                                          }
-                                          if (isset($_GET['sort_asc'])) {
-                                            $query .= " ORDER BY judul ASC";
-                                          }
-                                          if (isset($_GET['sort_desc'])) {
-                                            $query .= " ORDER BY judul DESC";
-                                          }
-
                                           $result = mysqli_query($conn, $query);
                                           $i = 1;
 
@@ -346,11 +326,7 @@
                                             echo "<td>" . $row['penerbit'] . "</td>";
                                             echo "<td>" . $row['harga'] . "</td>";
                                             echo "<td>" . $row['jumlah'] . "</td>";
-                                            echo "
-                                                  <td>
-                                                    <a href='ubah.php?id=" . $row['id_buku'] . "'class='btn btn-outline-success btn-inverse btn-icon'>update</a>
-                                                    <a href='hapus.php?id=" . $row['id_buku'] . "'class='btn btn-outline-danger btn-inverse btn-icon'>delete</a>
-                                                  </td>";
+                                            
                                             echo "</tr>";
                                           }
                                           // mengakhiri koneksi database

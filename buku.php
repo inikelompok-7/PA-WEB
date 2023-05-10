@@ -57,43 +57,55 @@
         </nav>
       </header>
   <h1>Daftar Buku</h1>
-  <table> 
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Judul Buku</th>
-        <th>Pengarang</th>
-        <th>Penerbit</th>
-        <th>Harga</th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php
-      // mengambil data buku dari database
-      $conn = mysqli_connect("localhost", "root", "", "tkbuku");
+  <h1>Daftar Buku</h1>
+<form method="GET">
+  <input type="text" name="search" placeholder="Cari judul buku">
+  <input type="submit" value="Cari">
+  <button type="submit" name="show_all">Tampilkan Semua</button>
+</form>
+<table> 
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Judul Buku</th>
+      <th>Pengarang</th>
+      <th>Penerbit</th>
+      <th>Harga</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+    // mengambil data buku dari database
+    $conn = mysqli_connect("localhost", "root", "", "tkbuku");
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+    $query = "SELECT * FROM buku";
+    if (!empty($search)) {
+      $query .= " WHERE judul LIKE '%$search%'";
+    }
+    if (isset($_GET['show_all'])) {
       $query = "SELECT * FROM buku";
-      $result = mysqli_query($conn, $query);
-      $i = 1;
+    }
+    $result = mysqli_query($conn, $query);
+    $i = 1;
 
-      // menampilkan data buku dalam tabel
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $i++ . "</td>";
-        // echo "<td>" . $row['id_buku'] . "</td>";
-        echo "<td>" . $row['judul'] . "</td>";
-        echo "<td>" . $row['pengarang'] . "</td>";
-        echo "<td>" . $row['penerbit'] . "</td>";
-        echo "<td>" . $row['harga'] . "</td>";
-        echo "<td><a href=\"beli.php?id=" . $row['id_buku'] . "\">Beli</a></td>";
-        echo "</tr>";
-      }
+    // menampilkan data buku dalam tabel
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>" . $i++ . "</td>";
+      echo "<td>" . $row['judul'] . "</td>";
+      echo "<td>" . $row['pengarang'] . "</td>";
+      echo "<td>" . $row['penerbit'] . "</td>";
+      echo "<td>" . $row['harga'] . "</td>";
+      echo "<td><a href=\"beli.php?id=" . $row['id_buku'] . "\">Beli</a></td>";
+      echo "</tr>";
+    }
 
-      // mengakhiri koneksi database
-      mysqli_close($conn);
-      ?>
-    </tbody>
-  </table>
+    // mengakhiri koneksi database
+    mysqli_close($conn);
+  ?>
+  </tbody>
+</table>
   <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
   <!-- Grid container -->
   <div class="container p-4">
