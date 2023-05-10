@@ -1,5 +1,5 @@
  body {
-  background-color: #2a913b;
+  background-color: #24582d;
   font-family: Arial, sans-serif;
   font-size: 16px;
 }
@@ -23,7 +23,7 @@ h2 {
 
 .form-group {
   margin-bottom: 20px;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 label {
@@ -52,10 +52,35 @@ input[type="submit"] {
   transition: all 0.3s ease;
   border: none;
   border-radius: 5px ;
-  ;
+  margin-left: 20px;
+  
 }
 
 input[type="submit"]:hover{
   background-color: #2bb855;
   color: #242424;
+}
+
+input[type="button"] {
+  background-color: #f0f0f0;
+  color: #00703c;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 5px ;
+  margin-right: 100px ;
+  margin-left: 60px;
+
+  
+  
+}
+
+input[type="button"]:hover{
+  background-color: #00703c;
+  color: #f0f0f0;
 }

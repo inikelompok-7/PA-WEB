@@ -16,6 +16,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     <title>Star Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
+
     <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
     <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css" />
     <link rel="stylesheet" href="vendors/typicons/typicons.css" />
@@ -30,6 +31,26 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
+
+    <style>
+
+    .kotak {
+        padding: 3px;
+        width: 300px;
+        border: 2px solid #101a10;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        display: flex;
+        line-height: 10px;  
+        margin: 0 0 10px 0
+      }
+    
+      .kotak:focus {
+        border-color: #45a049;
+      }
+    </style>
   </head>
   <body>
     <div class="container-scroller">
@@ -74,10 +95,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
           </ul>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <form class="search-form" action="#">
-                <i class="icon-search"></i>
-                <input type="search" class="form-control" placeholder="Search Here" title="Search here" />
-              </form>
+              
             </li>
             <li>
               <a class="dropdown-item" href="logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2" ></i>Sign Out</a>
@@ -307,11 +325,11 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                     <table class="table select-table">
                                     <a href="tambah.php" class="btn btn-inverse-primary btn-icon btn-md">Tambah Buku</a>
                                     <form method="GET">
-                                      <input type="text" name="search" placeholder="Cari judul buku">
-                                      <input type="submit" value="Cari">
-                                      <button type="submit" name="show_all">Tampilkan Semua</button>
-                                      <button type="submit" name="sort_asc">Urutkan A-Z</button>
-                                      <button type="submit" name="sort_desc">Urutkan Z-A</button>
+                                      <input type="text" name="search" placeholder="Cari judul buku" class="kotak">
+                                      <input type="submit" value="Cari" class="btn btn-inverse-secondary btn-icon btn-md">
+                                      <button type="submit" name="show_all" class="btn btn-inverse-warning btn-icon btn-md">Tampilkan Semua</button>
+                                      <button type="submit" name="sort_asc" class="btn btn-inverse-success btn-icon btn-md">Urutkan A-Z</button>
+                                      <button type="submit" name="sort_desc" class="btn btn-inverse-info btn-icon btn-md">Urutkan Z-A</button>
                                     </form>
                                         <thead>
                                           <tr>

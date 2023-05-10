@@ -311,7 +311,7 @@
                     <input type="number" class="form-control p-input" name="harga" id="harga" placeholder="Masukkan harga buku">
                 </div>
                 <div class="form-group">
-                    <label for="jumlah">Harga</label>
+                    <label for="jumlah">Jumlah</label>
                     <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
                 </div>
                 
