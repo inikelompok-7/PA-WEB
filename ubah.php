@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
+    header("Location: index.php");
+    exit();
+}
+
   // mengambil data buku dari database berdasarkan ID buku
   $conn = mysqli_connect("localhost", "root", "", "tkbuku");
   $id_buku = $_GET['id'];

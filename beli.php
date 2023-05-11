@@ -1,4 +1,12 @@
+
 <?php
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "user") {
+    header("Location: index.php");
+    exit();
+}
 // Mengambil data buku dari database
 $conn = mysqli_connect("localhost", "root", "", "tkbuku");
 
@@ -20,35 +28,43 @@ if (isset($_GET['id'])) {
         
         // Memeriksa apakah form pembelian telah di-submit
         if (isset($_POST['beli'])) {
-            $jumlah = $_POST['jumlah'];
-            
-            // Memeriksa apakah jumlah buku yang dibeli tersedia di stok
-            if ($jumlah <= $row['jumlah']) {
-                // Mengurangi jumlah jumlah buku di database
-                $query_update = "UPDATE buku SET jumlah = jumlah - $jumlah WHERE id_buku = $id_buku";
-                mysqli_query($conn, $query_update);
+            // Memeriksa apakah session username telah ada
+            if (isset($_SESSION["username"])) {
+                $username = $_SESSION["username"];
+                
+                $jumlah = $_POST['jumlah'];
+                $total_harga = $jumlah * $harga;
 
-                // Proses pembelian lainnya seperti menyimpan data pembeli ke tabel pembelian_buku, menghitung total harga, dll.
-                // ...
+                // Memeriksa apakah jumlah buku yang dibeli tersedia di stok
+                if ($jumlah <= $row['jumlah']) {
+                    // Mengurangi jumlah jumlah buku di database
+                    $query_update = "UPDATE buku SET jumlah = jumlah - $jumlah WHERE id_buku = $id_buku";
+                    mysqli_query($conn, $query_update);
 
-                echo "<script>alert('Pembelian sukses!')</script>";
-                echo "<script>window.location.href = 'buku.php'</script>";
+                    // Menyimpan data pembeli ke tabel pembelian_buku
+                    $query_insert = "INSERT INTO penjualan (id_buku, username, jumlah, total_harga) VALUES ('$id_buku', '$username', '$jumlah', '$total_harga')";
+                    mysqli_query($conn, $query_insert);
+
+
+                    echo "<script>alert('Pembelian sukses!')</script>";
+                    echo "<script>window.location.href = 'buku.php'</script>";
+                } else {
+                    echo "<script>alert('jumlah buku tidak mencukupi.')</script>";
+                }
             } else {
-                echo "<script>alert('jumlah buku tidak mencukupi.')</script>";
+                echo "<script>alert('Anda harus login untuk melakukan pembelian.')</script>";
+                echo "<script>window.location.href = 'login.php'</script>";
             }
         }
     } else {
-        echo "<script>alert('Buku tidak ditemukan.')</script>";
+        echo "<script>alert('ID buku tidak valid.')</script>";
         echo "<script>window.location.href = 'buku.php'</script>";
     }
-} else {
-    echo "<script>alert('ID buku tidak valid.')</script>";
-    echo "<script>window.location.href = 'buku.php'</script>";
-}
+}   
+    // Menutup koneksi database
+    mysqli_close($conn);
+?> 
 
-// Menutup koneksi database
-mysqli_close($conn);
-?>
 <html>
 <head>
 <meta charset="utf-8" />

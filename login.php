@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (authenticateUser($username, $password, $userRole)) {
         $_SESSION["logged_in"] = true;
         $_SESSION["user_role"] = $userRole;
+		$_SESSION["username"] = $username;
         if ($userRole == "admin") {
             header("Location: admin.php");
             exit();
