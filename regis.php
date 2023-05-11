@@ -23,6 +23,7 @@
     if (mysqli_query($conn, $query)) {
       // Jika berhasil disimpan, tampilkan pesan sukses
       echo "Registrasi berhasil!";
+      header("Location: login.php");
     } else {
       // Jika gagal disimpan, tampilkan pesan error
       echo "Registrasi gagal. Silakan coba lagi.";

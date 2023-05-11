@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
+    header("Location: index.php");
+    exit();
+}
+
   // mengambil data buku dari database berdasarkan ID buku
   $conn = mysqli_connect("localhost", "root", "", "tkbuku");
   $id_buku = $_GET['id'];
@@ -12,7 +21,8 @@
     $pengarang = $_POST['pengarang'];
     $penerbit = $_POST['penerbit'];
     $harga = $_POST['harga'];
-    $query = "UPDATE buku SET judul='$judul', pengarang='$pengarang', penerbit='$penerbit', harga=$harga WHERE id_buku=$id_buku";
+    $jumlah = $_POST['jumlah'];
+    $query = "UPDATE buku SET judul='$judul', pengarang='$pengarang', penerbit='$penerbit', harga='$harga',jumlah=$jumlah  WHERE id_buku=$id_buku";
     mysqli_query($conn, $query);
     header("Location: admin.php");
     exit();
@@ -302,6 +312,10 @@
                 <div class="form-group">
                     <label for="harga">Harga</label>
                     <input type="number" class="form-control p-input" name="harga" id="harga" value="<?php echo $row['harga']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah</label>
+                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" value="<?php echo $row['jumlah']; ?>">
                 </div>
                 
                 <div class="col-12">

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +35,7 @@
 </head>
 <body>
 
-  <?php
+<?php
     // jika tombol simpan ditekan
     if (isset($_POST['simpan'])) {
       $judul = $_POST['judul'];
@@ -44,7 +53,7 @@
 
       // jika query berhasil dieksekusi
       if ($result) {
-        echo "<script>alert('Data berhasil ditambahkan.');window.location='admin.php';</script>";
+        echo "<script>alert('Data berhasil ditambahkan.');window.location='supplier.php';</script>";
       }
       // jika query gagal dieksekusi
       else {
@@ -311,7 +320,7 @@
                     <input type="number" class="form-control p-input" name="harga" id="harga" placeholder="Masukkan harga buku">
                 </div>
                 <div class="form-group">
-                    <label for="jumlah">Jumlah</label>
+                    <label for="jumlah">jumlah</label>
                     <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
                 </div>
                 

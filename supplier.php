@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Autentikasi khusus untuk role admin
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "supplier") {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,7 +80,7 @@
               </form>
             </li>
             <li>
-              <a class="dropdown-item" href="./index.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2" ></i>Sign Out</a>
+              <a class="dropdown-item" href="logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2" ></i>Sign Out</a>
             </li>
             
           </ul>
