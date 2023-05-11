@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-// Autentikasi khusus untuk role admin
-if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
+// Autentikasi khusus untuk role supplier
+if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "supplier") {
     header("Location: index.php");
     exit();
 }
