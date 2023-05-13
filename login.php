@@ -13,14 +13,22 @@ if (!$conn) {
 }
 function authenticateUser($username, $password, &$userRole) {
     global $conn;
-    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM pegawai WHERE username = '$username' AND password = '$password'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);    
-        $userRole = $row["role"];
+        $userRole = "admin"; 
         return true;
     } else {
-        return false;
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);    
+            $userRole = $row["role"];
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
