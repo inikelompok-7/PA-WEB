@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 05:32 AM
+-- Generation Time: May 13, 2023 at 01:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,25 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `tkbuku`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `acc_sup`
---
-
-CREATE TABLE `acc_sup` (
-  `id_supp` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `acc_sup`
---
-
-INSERT INTO `acc_sup` (`id_supp`, `username`, `password`) VALUES
-(1, 'supplier', 'supplier123');
 
 -- --------------------------------------------------------
 
@@ -63,6 +44,28 @@ INSERT INTO `buku` (`id_buku`, `judul`, `pengarang`, `penerbit`, `harga`, `jumla
 (6, 'test', 'asd', 'qwer', 10000, 97),
 (7, 'aaa', 'asdasd', 'qwer', 12314, 12),
 (8, 'weqweqwe', 'asd', 'qwer', 100, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `alamat` varchar(30) NOT NULL,
+  `nohp` varchar(30) NOT NULL,
+  `role` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id_user`, `username`, `password`, `alamat`, `nohp`, `role`) VALUES
+(1, 'admin1', 'admin', 'jl.apa aja', '123456', 'admin');
 
 -- --------------------------------------------------------
 
@@ -104,26 +107,25 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `alamat`, `nohp`, `role`) VALUES
-(1, 'admin', 'admin123', 'jl.lempuyangan', '08123456', 'admin'),
-(2, 'supplier', 'supplier123', 'jl.pramuka', '123456', 'supplier'),
 (3, 'user', 'user123', 'jl.apaaja', '2345123', 'user'),
-(7, 'nana', 'nana', 'nana', '123', 'user');
+(7, 'nana', 'nana', 'nana', '123', 'user'),
+(8, 'supplier', 'supplier', 'jl.lempuyangan', '08123456', 'supplier');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `acc_sup`
---
-ALTER TABLE `acc_sup`
-  ADD PRIMARY KEY (`id_supp`);
-
---
 -- Indexes for table `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indexes for table `penjualan`
@@ -148,10 +150,16 @@ ALTER TABLE `buku`
   MODIFY `id_buku` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
