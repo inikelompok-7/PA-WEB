@@ -13,7 +13,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Star Admin</title>
+    <title>AnaBook Store</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
 
