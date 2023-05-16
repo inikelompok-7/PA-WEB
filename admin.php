@@ -13,7 +13,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Star Admin</title>
+    <title>AnaBook Store</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
 
@@ -388,105 +388,6 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4 d-flex flex-column">
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
-                                <div class="card-body">
-                                  <div class="row">
-                                    <div class="col-lg-12">
-                                      <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="card-title card-title-dash">Todo list</h4>
-                                        <div class="add-items d-flex mb-0">
-                                          <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
-                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
-                                        </div>
-                                      </div>
-                                      <div class="list-wrapper">
-                                        <ul class="todo-list todo-list-rounded">
-                                          <li class="d-block">
-                                            <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Inforsa akan mensupplai buku pada tanggal 17 Mei 2023 <i class="input-helper rounded"></i> </label>
-                                              <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">17 Mei 2023</div>
-                                                <div class="badge badge-opacity-warning me-3">Tomorrow</div>
-                                                <i class="mdi mdi-flag ms-2 flag-color"></i>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li class="d-block">
-                                            <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Sunan Gunung Jati ingin menjadi penyuplai buku di Toko Buku Ana<i class="input-helper rounded"></i> </label>
-                                              <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">23 June 2023</div>
-                                                <div class="badge badge-opacity-success me-3">Done</div>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li>
-                                            <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Perbarui beberapa stok buku yang telah habis <i class="input-helper rounded"></i> </label>
-                                              <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">24 June 2020</div>
-                                                <div class="badge badge-opacity-success me-3">Done</div>
-                                              </div>
-                                            </div>
-                                          </li>
-                                          <li class="border-bottom-0">
-                                            <div class="form-check w-100">
-                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Mengajak PT Dirgantara untuk menjadi penyuplai buku di Toko Buku Ana <i class="input-helper rounded"></i> </label>
-                                              <div class="d-flex mt-2">
-                                                <div class="ps-4 text-small me-3">24 June 2020</div>
-                                                <div class="badge badge-opacity-danger me-3">Expired</div>
-                                              </div>
-                                            </div>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded">
-                                <div class="card-body">
-                                  <div class="row">
-                                    <div class="col-lg-12">
-                                      <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                          <h4 class="card-title card-title-dash">Leave Report</h4>
-                                        </div>
-                                        <div>
-                                          <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Month Wise
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                                              <h6 class="dropdown-header">week Wise</h6>
-                                              <a class="dropdown-item" href="#">Year Wise</a>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="mt-3">
-                                        <canvas id="leaveReport"></canvas>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row flex-grow">
-                            <div class="col-12 grid-margin stretch-card">
-                              <div class="card card-rounded"></div>
                             </div>
                           </div>
                         </div>
