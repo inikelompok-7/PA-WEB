@@ -63,6 +63,8 @@ CREATE TABLE `pegawai` (
 --
 -- Dumping data for table `pegawai`
 --
+ALTER TABLE penjualan
+ADD COLUMN tanggal_penjualan TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
 INSERT INTO `pegawai` (`id_user`, `username`, `password`, `alamat`, `nohp`, `role`) VALUES
 (1, 'admin1', 'admin', 'jl.apa aja', '123456', 'admin');

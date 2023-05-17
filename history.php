@@ -357,7 +357,7 @@
                                           // menampilkan data buku dalam tabel
                                           while ($row = mysqli_fetch_assoc($result)) {
                                             echo "<tr>";
-                                            echo "<td>" . $row['tanggal'] . "</td>";
+                                            echo "<td>" . $row['tanggal_penjualan'] . "</td>";
                                             // echo "<td>" . $i++ . "</td>";
                                             echo "<td>" . $row['id_buku'] . "</td>";
                                             echo "<td>" . $row['username'] . "</td>";
