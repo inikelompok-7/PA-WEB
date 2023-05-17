@@ -14,7 +14,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "supplier") {
    <!-- Required meta tags -->
    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Star Admin2</title>
+    <title>AnaBook Store</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="vendors/feather/feather.css" />
     <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
@@ -47,6 +47,47 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "supplier") {
       // membuat koneksi ke database
       $conn = mysqli_connect("localhost", "root", "", "tkbuku");
 
+
+       // Validasi inputan
+        if (!preg_match("/^[a-zA-Z\s]+$/", $judul)) {
+            echo '<script>
+                  alert("Error: Judul hanya boleh berisi teks!");
+                  document.location.href = "supplier.php";
+                  </script>';
+            exit();
+        }
+      
+        if (!preg_match("/^[a-zA-Z\s]+$/", $pengarang)) {
+            echo '<script>
+            alert("Error: Pengarang hanya boleh berisi teks!");
+            document.location.href = "supplier.php";
+                  </script>';
+            exit();
+        }
+      
+        if (!preg_match("/^[a-zA-Z\s]+$/", $penerbit)) {
+            echo '<script>
+            alert("Error: Penerbit hanya boleh berisi teks!");
+            document.location.href = "supplier.php";
+                  </script>';
+            exit();
+        }
+      
+        if (!preg_match("/^[0-9]+$/", $harga) || $harga < 0) {
+            echo '<script>
+            alert("Error: Harga hanya boleh berisi angka positif!");
+            document.location.href = "supplier.php";
+                  </script>';
+            exit();
+        }
+      
+        if (!preg_match("/^[0-9]+$/", $jumlah) || $jumlah < 0) {
+          echo '<script>
+          alert("Error: Jumlah hanya boleh berisi angka positif!");
+          document.location.href = "supplier.php";
+                </script>';
+          exit();
+      }
       // query untuk menambah data buku
       $query = "INSERT INTO buku (judul, pengarang, penerbit, harga, jumlah) VALUES ('$judul', '$pengarang', '$penerbit', '$harga', '$jumlah')";
       $result = mysqli_query($conn, $query);
@@ -304,24 +345,24 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "supplier") {
               <form class="forms-sample" method="POST">
                 <div class="form-group">
                     <label for="judul">Judul Buku</label>
-                    <input type="text" class="form-control p-input" name="judul" id="judul" placeholder="Masukkan judul buku">
+                    <input type="text" class="form-control p-input" name="judul" id="judul" required placeholder="Masukkan judul buku">
         
                 </div>
                 <div class="form-group">
                     <label for="pengarang">Pengarang</label>
-                    <input type="text" class="form-control p-input" name="pengarang" id="pengarang" placeholder="Masukkan pengarang buku">
+                    <input type="text" class="form-control p-input" name="pengarang" id="pengarang" required placeholder="Masukkan pengarang buku">
                 </div> 
                 <div class="form-group">
                     <label for="penerbit">Penerbit`</label>
-                    <input type="text" class="form-control p-input" name="penerbit" id="penerbit" placeholder="Masukkan penerbit buku">
+                    <input type="text" class="form-control p-input" name="penerbit" id="penerbit" required placeholder="Masukkan penerbit buku">
                 </div>
                 <div class="form-group">
                     <label for="harga">Harga</label>
-                    <input type="number" class="form-control p-input" name="harga" id="harga" placeholder="Masukkan harga buku">
+                    <input type="number" class="form-control p-input" name="harga" id="harga" required placeholder="Masukkan harga buku">
                 </div>
                 <div class="form-group">
                     <label for="jumlah">jumlah</label>
-                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
+                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" required placeholder="Masukkan jumlah buku">
                 </div>
                 
                 <div class="col-12">

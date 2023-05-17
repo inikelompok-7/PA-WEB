@@ -22,6 +22,48 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     $penerbit = $_POST['penerbit'];
     $harga = $_POST['harga'];
     $jumlah = $_POST['jumlah'];
+
+     // Validasi inputan
+    if (!preg_match("/^[a-zA-Z\s]+$/", $judul)) {
+        echo '<script>
+              alert("Error: Judul hanya boleh berisi teks!");
+              document.location.href = "admin.php";
+              </script>';
+        exit();
+    }
+  
+    if (!preg_match("/^[a-zA-Z\s]+$/", $pengarang)) {
+        echo '<script>
+        alert("Error: Pengarang hanya boleh berisi teks!");
+        document.location.href = "admin.php";
+              </script>';
+        exit();
+    }
+  
+    if (!preg_match("/^[a-zA-Z\s]+$/", $penerbit)) {
+        echo '<script>
+        alert("Error: Penerbit hanya boleh berisi teks!");
+        document.location.href = "admin.php";
+              </script>';
+        exit();
+    }
+  
+    if (!preg_match("/^[0-9]+$/", $harga) || $harga < 0) {
+        echo '<script>
+        alert("Error: Harga hanya boleh berisi angka positif!");
+        document.location.href = "admin.php";
+              </script>';
+        exit();
+    }
+  
+    if (!preg_match("/^[0-9]+$/", $jumlah) || $jumlah < 0) {
+      echo '<script>
+      alert("Error: Jumlah hanya boleh berisi angka positif!");
+      document.location.href = "admin.php";
+            </script>';
+      exit();
+  }
+  
     $query = "UPDATE buku SET judul='$judul', pengarang='$pengarang', penerbit='$penerbit', harga='$harga',jumlah=$jumlah  WHERE id_buku=$id_buku";
     mysqli_query($conn, $query);
     header("Location: admin.php");
@@ -36,11 +78,11 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Toko Buku</title>
+  <title>AnaBook Store</title>
   <!-- Required meta tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Star Admin2</title>
+  <title>AnaBook Store</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css" />
   <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
@@ -298,24 +340,24 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
               <form class="forms-sample" method="POST">
                 <div class="form-group">
                     <label for="judul">Judul Buku</label>
-                    <input type="text" class="form-control p-input" name="judul" id="judul" value="<?php echo $row['judul']; ?>">
+                    <input type="text" class="form-control p-input" name="judul" id="judul" required value="<?php echo $row['judul']; ?>">
         
                 </div>
                 <div class="form-group">
                     <label for="pengarang">Pengarang</label>
-                    <input type="text" class="form-control p-input" name="pengarang" id="pengarang" value="<?php echo $row['pengarang']; ?>">
+                    <input type="text" class="form-control p-input" name="pengarang" id="pengarang" required value="<?php echo $row['pengarang']; ?>">
                 </div> 
                 <div class="form-group">
                     <label for="penerbit">Penerbit`</label>
-                    <input type="text" class="form-control p-input" name="penerbit" id="penerbit" value="<?php echo $row['penerbit']; ?>">
+                    <input type="text" class="form-control p-input" name="penerbit" id="penerbit" required value="<?php echo $row['penerbit']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="harga">Harga</label>
-                    <input type="number" class="form-control p-input" name="harga" id="harga" value="<?php echo $row['harga']; ?>">
+                    <input type="number" class="form-control p-input" name="harga" id="harga" required value="<?php echo $row['harga']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="jumlah">Jumlah</label>
-                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" value="<?php echo $row['jumlah']; ?>">
+                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" required value="<?php echo $row['jumlah']; ?>">
                 </div>
                 
                 <div class="col-12">
