@@ -1,58 +1,46 @@
-<?php
-session_start();
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Star Admin</title>
+        <!-- plugins:css -->
+        <link rel="stylesheet" href="vendors/feather/feather.css" />
 
-// Autentikasi khusus untuk role admin
-if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
-    header("Location: index.php");
-    exit();
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>AnaBook Store</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="vendors/feather/feather.css" />
-
-    <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
-    <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css" />
-    <link rel="stylesheet" href="vendors/typicons/typicons.css" />
-    <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css" />
-    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
-    <link rel="stylesheet" href="js/select.dataTables.min.css" />
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
-    <!-- endinject -->
-    <link rel="shortcut icon" href="images/favicon.png" />
-
-    <style>
-
-    .kotak {
-        padding: 3px;
-        width: 300px;
-        border: 2px solid #101a10;
-        border-radius: 5px;
-        font-size: 14px;
-        outline: none;
-        transition: border-color 0.3s ease;
-        display: flex;
-        line-height: 10px;  
-        margin: 0 0 10px 0
-      }
-    
-      .kotak:focus {
-        border-color: #45a049;
-      }
-    </style>
-  </head>
-  <body>
+        <!-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css" /> -->
+        <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css" />
+        <link rel="stylesheet" href="vendors/typicons/typicons.css" />
+        <link rel="stylesheet" href="vendors/simple-line-icons/css/simple-line-icons.css" />
+        <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css" />
+        <!-- endinject -->
+        <!-- Plugin css for this page -->
+        <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
+        <link rel="stylesheet" href="js/select.dataTables.min.css" />
+        <!-- End plugin css for this page -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="css/vertical-layout-light/style.css" />
+        <!-- endinject -->
+        <link rel="shortcut icon" href="images/favicon.png" />
+        <style>
+            .kotak1 {
+                padding: 3px;
+                width: 420px;
+                border: 2px solid #101a10;
+                border-radius: 5px;
+                font-size: 14px;
+                outline: none;
+                transition: border-color 0.3s ease;
+                display: flex;
+                line-height: 10px;  
+                margin: 0 0 10px 0
+            }
+            
+            .kotak1:focus {
+                border-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
     <div class="container-scroller">
       <div class="row p-0 m-0 proBanner" id="proBanner">
         <div class="col-md-12 p-0 m-0">
@@ -300,9 +288,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                 <span class="menu-title">Riwayat Penjualan</span>
               </a>
             </li>
-            
-            
-        </nav>
+    
+            </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -322,8 +309,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                 <div class="card-body">
                                   <div class="d-sm-flex justify-content-between align-items-start">
                                     <div>
-                                      <h4 class="card-title card-title-dash">Daftar Buku</h4>
-                                    
+                                      <h4 class="card-title card-title-dash">Riwayat Penjualan Buku</h4>
                                     </div>
                                   
                                   </div>
@@ -331,7 +317,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                     <table class="table select-table">
                                     
                                     <form method="GET">
-                                      <input type="text" name="search" placeholder="Cari judul buku" class="kotak">
+                                      <input type="text" name="search" placeholder="Cari username" class="kotak1">
                                       <input type="submit" value="Cari" class="btn btn-inverse-secondary btn-icon btn-md">
                                       <button type="submit" name="show_all" class="btn btn-inverse-warning btn-icon btn-md">Tampilkan Semua</button>
                                       <button type="submit" name="sort_asc" class="btn btn-inverse-success btn-icon btn-md">Urutkan A-Z</button>
@@ -339,32 +325,30 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                     </form>
                                         <thead>
                                           <tr>
-                                            <th>No</th>
-                                            <th>Judul Buku</th>
-                                            <th>Pengarang</th>
-                                            <th>Penerbit</th>
-                                            <th>Harga</th>
-                                            <th>Jumlah</th>
-                                            <th>Aksi</th>
-                                              <!-- <td><a href="hapus.php">[Delete]</a></td> -->
+                                            <th>Timestamp</th>
+                                            <!-- <th>No</th> -->
+                                            <th>Id Buku</th>
+                                            <th>Username</th>
+                                            <th>Jumlah Buku</th>
+                                            <th>Total</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                         <?php
                                           $conn = mysqli_connect("localhost", "root", "", "tkbuku");
                                           $search = isset($_GET['search']) ? $_GET['search'] : '';
-                                          $query = "SELECT * FROM buku";
+                                          $query = "SELECT * FROM penjualan";
                                           if (!empty($search)) {
-                                            $query .= " WHERE judul LIKE '%$search%'";
+                                            $query .= " WHERE username LIKE '%$search%'";
                                           }
                                           if (isset($_GET['show_all'])) {
-                                            $query = "SELECT * FROM buku";
+                                            $query = "SELECT * FROM penjualan";
                                           }
                                           if (isset($_GET['sort_asc'])) {
-                                            $query .= " ORDER BY judul ASC";
+                                            $query .= " ORDER BY username ASC";
                                           }
                                           if (isset($_GET['sort_desc'])) {
-                                            $query .= " ORDER BY judul DESC";
+                                            $query .= " ORDER BY username DESC";
                                           }
 
                                           $result = mysqli_query($conn, $query);
@@ -373,17 +357,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                           // menampilkan data buku dalam tabel
                                           while ($row = mysqli_fetch_assoc($result)) {
                                             echo "<tr>";
-                                            echo "<td>" . $i++ . "</td>";
-                                            echo "<td>" . $row['judul'] . "</td>";
-                                            echo "<td>" . $row['pengarang'] . "</td>";
-                                            echo "<td>" . $row['penerbit'] . "</td>";
-                                            echo "<td>" . $row['harga'] . "</td>";
+                                            echo "<td>" . $row['tanggal_penjualan'] . "</td>";
+                                            // echo "<td>" . $i++ . "</td>";
+                                            echo "<td>" . $row['id_buku'] . "</td>";
+                                            echo "<td>" . $row['username'] . "</td>";
                                             echo "<td>" . $row['jumlah'] . "</td>";
-                                            echo "
-                                                  <td>
-                                                    <a href='ubah.php?id=" . $row['id_buku'] . "'class='btn btn-outline-success btn-inverse btn-icon'>update</a>
-                                                    <a href='hapus.php?id=" . $row['id_buku'] . "'class='btn btn-outline-danger btn-inverse btn-icon'>delete</a>
-                                                  </td>";
+                                            echo "<td>" . $row['total_harga'] . "</td>";
                                             echo "</tr>";
                                           }
                                           // mengakhiri koneksi database
@@ -394,6 +373,105 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
                                   </div>
                                 </div>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 d-flex flex-column">
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title card-title-dash">Todo list</h4>
+                                        <div class="add-items d-flex mb-0">
+                                          <!-- <input type="text" class="form-control todo-list-input" placeholder="What do you need to do today?"> -->
+                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
+                                        </div>
+                                      </div>
+                                      <div class="list-wrapper">
+                                        <ul class="todo-list todo-list-rounded">
+                                          <li class="d-block">
+                                            <div class="form-check w-100">
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Inforsa akan mensupplai buku pada tanggal 17 Mei 2023 <i class="input-helper rounded"></i> </label>
+                                              <div class="d-flex mt-2">
+                                                <div class="ps-4 text-small me-3">17 Mei 2023</div>
+                                                <div class="badge badge-opacity-warning me-3">Tomorrow</div>
+                                                <i class="mdi mdi-flag ms-2 flag-color"></i>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li class="d-block">
+                                            <div class="form-check w-100">
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> PT Sunan Gunung Jati ingin menjadi penyuplai buku di Toko Buku Ana<i class="input-helper rounded"></i> </label>
+                                              <div class="d-flex mt-2">
+                                                <div class="ps-4 text-small me-3">23 June 2023</div>
+                                                <div class="badge badge-opacity-success me-3">Done</div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li>
+                                            <div class="form-check w-100">
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Perbarui beberapa stok buku yang telah habis <i class="input-helper rounded"></i> </label>
+                                              <div class="d-flex mt-2">
+                                                <div class="ps-4 text-small me-3">24 June 2020</div>
+                                                <div class="badge badge-opacity-success me-3">Done</div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                          <li class="border-bottom-0">
+                                            <div class="form-check w-100">
+                                              <label class="form-check-label"> <input class="checkbox" type="checkbox" /> Mengajak PT Dirgantara untuk menjadi penyuplai buku di Toko Buku Ana <i class="input-helper rounded"></i> </label>
+                                              <div class="d-flex mt-2">
+                                                <div class="ps-4 text-small me-3">24 June 2020</div>
+                                                <div class="badge badge-opacity-danger me-3">Expired</div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded">
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                          <h4 class="card-title card-title-dash">Leave Report</h4>
+                                        </div>
+                                        <div>
+                                          <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle toggle-dark btn-lg mb-0 me-0" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Month Wise
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                              <h6 class="dropdown-header">week Wise</h6>
+                                              <a class="dropdown-item" href="#">Year Wise</a>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="mt-3">
+                                        <canvas id="leaveReport"></canvas>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row flex-grow">
+                            <div class="col-12 grid-margin stretch-card">
+                              <div class="card card-rounded"></div>
                             </div>
                           </div>
                         </div>
@@ -418,7 +496,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
+
+    
 
     <!-- plugins:js -->
     <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -441,5 +520,5 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["user_role"] != "admin") {
     <script src="js/dashboard.js"></script>
     <script src="js/Chart.roundedBarCharts.js"></script>
     <!-- End custom js for this page-->
-  </body>
+    </body>
 </html>
