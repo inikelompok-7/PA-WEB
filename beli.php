@@ -99,28 +99,28 @@ if (isset($_GET['id'])) {
               <form class="forms-sample" method="POST" onsubmit="return validateForm()">
               <div class="form-group">
                     <label for="judul">Judul Buku</label>
-                    <input type="text" class="form-control p-input" name="judul" id="judul" value="<?php echo $row['judul']; ?>" readonly>
+                    <input type="text" class="form-control p-input" required name="judul" id="judul" value="<?php echo $row['judul']; ?>" readonly>
         
                 </div>
                 <div class="form-group">
                     <label for="pengarang">Pengarang Buku</label>
-                    <input type="text" class="form-control p-input" name="pengarang" id="pengarang" value="<?php echo $row['pengarang']; ?>" readonly>
+                    <input type="text" class="form-control p-input" required name="pengarang" id="pengarang" value="<?php echo $row['pengarang']; ?>" readonly>
                 </div> 
                 <div class="form-group">
                     <label for="penerbit">Penerbit Buku</label>
-                    <input type="text" class="form-control p-input" name="penerbit" id="penerbit" value="<?php echo $row['penerbit']; ?>" readonly>
+                    <input type="text" class="form-control p-input" required name="penerbit" id="penerbit" value="<?php echo $row['penerbit']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="harga">Harga Buku</label>
-                    <input type="number" class="form-control p-input" name="harga" id="harga" value="<?php echo $row['harga']; ?>" readonly>
+                    <input type="number" class="form-control p-input" required name="harga" id="harga" value="<?php echo $row['harga']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="stok">Jumlah Buku saat ini</label>
-                    <input type="text" class="form-control p-input" name="stok" id="stok" value="<?php echo $row['jumlah']; ?>" readonly>
+                    <input type="text" class="form-control p-input" required name="stok" id="stok" value="<?php echo $row['jumlah']; ?>" readonly>
                     </div>
               <div class="form-group">
                     <label for="jumlah">Masukkan Jumlah Buku</label>
-                    <input type="number" class="form-control p-input" name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
+                    <input type="number" class="form-control p-input" required name="jumlah" id="jumlah" placeholder="Masukkan jumlah buku">
                     </div>
                     
                 <div class="col-12">
